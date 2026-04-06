@@ -1,0 +1,52 @@
+[
+    {
+        "id": "occ2usv",
+        "parent_id": "t3_1s30nhm",
+        "text": "**Quick reminder**\n\n\u2022 Follow subreddit rules  \n\u2022 Be civil and respectful  \n\u2022 No spam, brigading, or low-effort posts  \n\nHelp mods by reporting rule-breaking content.\n\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/BollywoodHotTakes) if you have any questions or concerns.*",
+        "ai_analysis": {
+            "verdict": "Safe",
+            "confidence_score": 1.0,
+            "reasoning": "The text is a standard, benign moderation bot message reminding users of rules and encouraging civil behavior, containing no harmful content."
+        }
+    },
+    {
+        "id": "occ6rpv",
+        "parent_id": "t3_1s30nhm",
+        "text": "Not including Rehman Dakait is a crime.\n\n![gif](giphy|M6MhvD2ywWZDcRJQVV)\n\nOP get ready for Kasainuma.",
+        "ai_analysis": {
+            "verdict": "Safe",
+            "confidence_score": 0.9,
+            "reasoning": "The comment uses hyperbole ('crime') and a reference to a fictional character ('Kasainuma') in an exaggerated, non-literal way to express strong disapproval, not to issue a genuine threat or engage in severe harassment."
+        }
+    },
+    {
+        "id": "occdeb1",
+        "parent_id": "t3_1s30nhm",
+        "text": "https://preview.redd.it/fig7pkrip4rg1.jpeg?width=960&amp;format=pjpg&amp;auto=webp&amp;s=6b0d7597e47996cd16677174bbfb130e67a68c72",
+        "ai_analysis": {
+            "verdict": "Safe",
+            "confidence_score": 1.0,
+            "reasoning": "The provided text is a URL string which, by itself, does not contain any hate speech, severe toxicity, threats, or extreme harassment."
+        }
+    },
+    {
+        "id": "occk28x",
+        "parent_id": "t3_1s30nhm",
+        "text": "Deepika is literally Ravir's wife, isn't she??\n\nYou guys are weird..",
+        "ai_analysis": {
+            "verdict": "Safe",
+            "confidence_score": 1.0,
+            "reasoning": "The comment contains a mild, non-severe insult ('weird') but lacks any elements of hate speech, threats, severe toxicity, or extreme harassment."
+        }
+    },
+    {
+        "id": "occ8u3m",
+        "parent_id": "t3_1s30nhm",
+        "text": "Its so funny that the same pages that were calling Ranveer a coke addict cuck are now championing him. Honestly, you can do anything in your life and suck up to these right wingers and you'll just flourish. Sanjay Dutt is proof of this.",
+        "ai_analysis": {
+            "verdict": "Harmful",
+            "confidence_score": 0.9,
+            "reasoning": "The comment repeats and implicitly endorses severely toxic and harassing slurs ('coke addict cuck') by finding their previous use 'funny,' which normalizes harmful language."
+        }
+    }
+]
