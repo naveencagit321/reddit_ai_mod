@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-from .scrapper import scrape_reddit, scrape_post_comments
-from .ai_engine import run_ai_analysis, analyze_full_thread  # <-- ADD THIS LINE
+from scrapper import scrape_reddit, scrape_post_comments
+from ai_engine import run_ai_analysis, analyze_full_thread  # <-- ADD THIS LINE
 import json
 import os
 
