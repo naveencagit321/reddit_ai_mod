@@ -37,7 +37,7 @@ function App() {
     // THIS IS THE FIX: It tells React to look for the Vercel cloud variable first
     const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
-     axios.get(`${API_URL}/api/scan?subreddit=${subreddit}&limit=${limit}`)
+     axios.get(`${API_URL}/api/scan?subreddit=sastra&limit=2`)
       .then(response => {
         if (response.data && response.data.analyzed_comments) {
           setComments(response.data.analyzed_comments);
