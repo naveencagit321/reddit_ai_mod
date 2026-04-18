@@ -5,8 +5,8 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
 # 1. IMPORT YOUR SCRAPER AND NEW AI ENGINE
-from backend.scrapper import scrape_reddit  # (Make sure this matches your actual scraper function name)
-from backend.ai_engine import analyze_toxicity_locally  # YOUR NEW LOCAL ML IMPORT
+from scrapper import scrape_reddit  # (Make sure this matches your actual scraper function name)
+from ai_engine import analyze_toxicity_locally  # YOUR NEW LOCAL ML IMPORT
 
 # 2. SETUP THE RATE LIMITER
 limiter = Limiter(key_func=get_remote_address)
