@@ -1,3 +1,11 @@
+import os
+# 1. FORCE THE OS TO USE SINGLE-THREADING BEFORE LOADING AI
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["MALLOC_ARENA_MAX"] = "2"
+
+import torch
+# 2. FORCE PYTORCH TO ONLY USE 1 THREAD
+torch.set_num_threads(1)
 from transformers import pipeline
 
 print("Downloading and Loading Local AI Model...")
