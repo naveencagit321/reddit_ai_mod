@@ -34,18 +34,18 @@ function App() {
     setError(null);
     
     // Calls Tool 1: The Feed Scanner (with the 5 options)
-    axios.get(`${import.meta.env.VITE_API_URL}/api/scan?subreddit=${targetSubreddit}&limit=${postLimit}&sort=${sortBy}`)
+    axios.get(`http://127.0.0.1:8000/api/scan?subreddit=${targetSubreddit}&limit=${postLimit}&sort=${sortBy}`)
       .then(response => {
-        if (response.data.status === "success") {
-          setComments(response.data.data);
+        if (response.data && response.data.analyzed_comments) {
+          setComments(response.data.analyzed_comments);
         } else {
-          setError(response.data.message);
+          setError("Received unexpected data format from the backend.");
         }
         setIsScanning(false);
       })
-      .catch(err => {
-        console.error(err);
-        setError("Failed to connect to the backend. Is Uvicorn running?");
+    .catch(err => {
+      console.error(err);
+      setError(`Connection Error: ${err.message}. Check terminal for details.`);
         setIsScanning(false);
       });
   };
@@ -147,19 +147,17 @@ function App() {
 
         {/* Feed of Post Cards */}
         <div className="grid gap-6">
-          {comments && comments.map((comment, index) => (
-            <div key={index} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 transition-all hover:shadow-md">
-              
+          {comments.map((comment) => (
+            <div key={comment.id} className="bg-white p-6 rounded-3xl shadow-sm border border-gray-200">
               {/* Card Header & AI Verdict */}
               <div className="flex justify-between items-start mb-4 gap-4">
                 <h3 className="text-lg font-bold text-gray-900 line-clamp-2 flex-1">
-                  {comment.text.split('.')[0]} {/* Show first sentence as pseudo-title */}
+                  {comment.text.split('.')[0]}
                 </h3>
                 <span className={`px-3 py-1 rounded-md text-sm font-bold shadow-sm flex-shrink-0 ${
-                  comment.ai_analysis?.verdict === 'Safe' ? 'bg-emerald-100 text-emerald-800' : 
-                  'bg-red-500 text-white'
+                  !comment.is_toxic ? 'bg-emerald-100 text-emerald-800' : 'bg-red-500 text-white'
                 }`}>
-                  {comment.ai_analysis?.verdict || 'Unknown'}
+                  {!comment.is_toxic ? 'Safe' : 'Toxic'}
                 </span>
               </div>
 
@@ -172,12 +170,12 @@ function App() {
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
                 <p className="text-sm font-medium text-gray-700 mb-3">
                   <span className="font-bold text-indigo-600 mr-2">AI Reasoning:</span>
-                  {comment.ai_analysis?.reasoning || 'No reasoning provided.'}
+                  {comment.reasoning || 'No reasoning provided.'}
                 </p>
                 
                 <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200">
                   <div className="text-xs font-mono text-gray-500">
-                    Confidence: {comment.ai_analysis ? (comment.ai_analysis.confidence_score * 100).toFixed(0) : 0}%
+                    Confidence: {comment.confidence_score}%
                   </div>
                   
                   {/* TRIGGER FOR THE MODAL */}
