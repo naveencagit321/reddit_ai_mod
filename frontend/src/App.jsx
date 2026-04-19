@@ -35,7 +35,7 @@ function App() {
     
     // Calls Tool 1: The Feed Scanner (with the 5 options)
     // THIS IS THE FIX: It tells React to look for the Vercel cloud variable first
-    const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+    const API_URL = "https://naveen3219715-reddit-ai-mod.hf.space";
 
      axios.get(`${API_URL}/api/scan?subreddit=${targetSubreddit}&limit=${postLimit}`)
       .then(response => {
